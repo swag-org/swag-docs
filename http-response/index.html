@@ -413,8 +413,29 @@
   <h1>Response</h1>
 
 <p><code>swag.http.response.response.HTTPResponse</code>
-A class that should always be returned from the endpoint.
-Any endpoint must return this class, or to be more precise, BaseResponse with a specific package method that returns bytes.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">.</span><span class="n">extra_headers</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="o">.</span><span class="n">date</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="o">.</span><span class="n">content_length</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="o">.</span><span class="n">content_type</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="o">.</span><span class="n">content_data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">]</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="o">.</span><span class="n">status</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="o">.</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="o">.</span><span class="n">server</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="o">.</span><span class="n">package</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bytes</span>
+</span></code></pre></div></p>
+<p><code>extra_headers</code> - additional headers, except Date, Server, Content-Type, Content-Length, Connection.</p>
+<p><code>content_length</code> - length of a data.</p>
+<p><code>date</code> - value for Date http header. By default is current datetime.</p>
+<p><code>content_type</code> - value for Content-Type header, like <code>text/html</code> or <code>application/json</code>.</p>
+<p><code>content_data</code> - data that swag send in the body of the server response.</p>
+<p><code>status</code> - http response status, like 200 or 500. By default is 200</p>
+<p><code>message</code> - http message for client, like "Not Found", "OK", "Continue".</p>
+<p><code>server</code> - value for Server http header. By default is <code>"SwagServer"</code></p>
+<p><code>__init__()</code></p>
+<p><code>package()</code> - method that return bytes to be send over the socket.</p>
+<p>A class that should always be returned from the endpoint.
+Any endpoint must return this class, or to be more precise, 
+BaseResponse with a specific package method that returns bytes.</p>
 
 
 
