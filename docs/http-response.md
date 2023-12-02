@@ -27,9 +27,6 @@
 
 ``server`` - value for Server http header. By default is ``"SwagServer"``
 
-``__init__()``
-
-
 ``package()`` - method that return bytes to be send over the socket.
 
 
